@@ -1,8 +1,14 @@
 'use client';
-import { useState } from "react";
 
-export const Counter = () => {
-    const [counter, setCounter] = useState(0)
+
+import { useState } from "react";
+interface Props {
+    value?: number
+}
+
+
+export const Counter = ({ value = 0 }: Props) => {
+    const [counter, setCounter] = useState(value)
     return (
 
         <div className="flex flex-col items-center justify-center gap-2">
