@@ -25,7 +25,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
                 />
                 <div className="text-center mt-2 h-20 text-3xl font-medium">{name}</div>
                 <div className="px-6 text-center mt-2 font-light text-sm h-20 flex items-center justify-center gap-4">
-                    <Link href={`pokemon/${id}`}>
+                    <Link href={`pokemons/${name}`}>
                         Más información
                     </Link>
                     <button className="text-red-500"><IoHeartOutline /></button>
