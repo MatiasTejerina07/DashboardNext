@@ -9,9 +9,7 @@ export default function DashboarLayout({
     return (
         <div className="bg-slate-100 overflow-y-scroll w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
             <div className="flex">
-                <div>
-                    <Sidebar />
-                </div>
+                <Sidebar />
                 <div className="p-2 w-full text-slate-900">
                     {children}
                 </div>
