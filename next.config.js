@@ -5,6 +5,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'www.karvi.com.ar'
+            },
+            {
+                protocol: 'https',
+                hostname: 'raw.githubusercontent.com'
             }
         ]
     }
