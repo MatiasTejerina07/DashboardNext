@@ -1,9 +1,20 @@
+import { PokemonsResponse, simplePokemon } from "@/app/pokemons/interfaces";
+
+import PokemonGrid from "@/app/pokemons/components/PokemonGrid";
 
 
-const getPokemons = async (limit = 20, offset = 0) => {
-    const data = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+const getPokemons = async (limit = 20, offset = 0): Promise<simplePokemon[]> => {
+    const data: PokemonsResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
         .then(res => res.json())
-    return data;
+    const pokemons = data.results.map(pokemon => ({
+        id: pokemon.url.split('/').at(-2)!,
+        name: pokemon.name,
+
+    }))
+
+
+
+    return pokemons;
 }
 
 export default async function PokemonsPage() {
@@ -12,8 +23,9 @@ export default async function PokemonsPage() {
 
 
     return (
-        <div>
-            {JSON.stringify(pokemons)}
+        <div className="flex flex-col">
+            <span className="-tracking-widest text-[19px]">Listado de Pokemons <small className="text-[15px] ">estaticos</small></span>
+            <PokemonGrid pokemons={pokemons} />
         </div>
     )
 }
