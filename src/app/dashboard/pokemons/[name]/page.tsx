@@ -2,6 +2,7 @@ import { PokemonsResponse, simplePokemon } from "@/pokemons/interfaces"
 import { Metadata } from "next"
 import Image from "next/image"
 import { notFound } from "next/navigation"
+import { Key, ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
 
 
 
@@ -56,7 +57,7 @@ export default async function PokemonPage({ params }: Props) {
 
 
     return (
-        <div className="flex mt-5 flex-col items-center text-slate-800 justify-center h-full">
+        <div className="flex flex-col items-center text-slate-800 justify-center h-screen">
             <div className="relative flex flex-col items-center rounded-[20px] w-[700px] mx-auto bg-white bg-clip-border  shadow-lg  p-3">
                 <div className="mt-2 mb-8 w-full">
                     <h1 className="px-2 text-xl font-bold text-slate-700 capitalize">
@@ -87,7 +88,7 @@ export default async function PokemonPage({ params }: Props) {
                         <p className="text-sm text-gray-600">Types</p>
                         <div className="text-base font-medium text-navy-700 flex">
                             {
-                                pokemon.types.map(type => (
+                                pokemon.types.map((type: { slot: Key | null | undefined; type: { name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined } }) => (
                                     <p key={type.slot} className="mr-2 capitalize">{type.type.name}</p>
                                 ))
                             }
