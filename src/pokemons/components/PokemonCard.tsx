@@ -1,7 +1,11 @@
+'use client'
+
 import Image from "next/image";
 import { simplePokemon } from "../interfaces";
 import Link from "next/link";
-import { IoHeartOutline } from "react-icons/io5";
+import { IoHeartOutline, IoHeart } from "react-icons/io5";
+import { useAppSelector } from "@/store";
+
 
 interface Props {
     pokemon: simplePokemon;
@@ -11,6 +15,8 @@ interface Props {
 export const PokemonCard = ({ pokemon }: Props) => {
     const { id, name } = pokemon;
 
+    const isFavorite = useAppSelector(store => !!store.favorite[id])
+    console.log(isFavorite)
     return (
         <Link href={`pokemons/${name}`}>
             <section className="bg-gray-200 font-sans h-48 w-56 mt-32 flex flex-row justify-center items-center">
@@ -27,7 +33,16 @@ export const PokemonCard = ({ pokemon }: Props) => {
                     <div className="text-center mt-2 h-20 text-3xl font-medium">{name}</div>
                     <div className="px-6 text-center mt-2 font-light text-sm h-20 flex items-center justify-center gap-4">
 
-                        <button className="text-red-500"><IoHeartOutline /></button>
+
+                        <button className="text-red-500">
+                            {
+                                isFavorite
+                                    ? (<IoHeart />)
+                                    : (<IoHeartOutline />)
+                            }
+                        </button>
+
+
                     </div>
 
                     <div className="flex p-4 justify-center h-20">
