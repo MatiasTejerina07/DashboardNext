@@ -15,6 +15,7 @@ export const WidgetsGrid = () => {
                 label={counter.toString()}
                 icon={<IoCartOutline size={70} className='text-blue-400' />}
                 subTitle='Productos agregados'
+                href="/dashboard/counter"
             />
         </div>
     )

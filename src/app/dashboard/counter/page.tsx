@@ -6,6 +6,8 @@ export const metadata: Metadata = {
     description: 'hola mundo'
 }
 
+
+
 export default function CounterPage() {
     return (
         <div className=" flex flex-col gap-2 items-center justify-center w-full h-full">
