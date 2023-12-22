@@ -5,10 +5,15 @@ interface PokemonsFavorites{
     [key:string]:simplePokemon
 }
 
+const getInitialState=():PokemonsFavorites=>{
+    const favorites = JSON.parse(localStorage.getItem('favorite-pokemon') ?? '{}')
+    return favorites
+}
 
 const initialState:PokemonsFavorites = {
-    '1':{id:'1', name:'bulbasaur'}
+    ...getInitialState()
 }
+
 
 const pokemonsSlice = createSlice({
   name: 'pokemons',

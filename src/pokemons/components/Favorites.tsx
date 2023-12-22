@@ -11,6 +11,13 @@ export default function Favorites() {
 
 
     return (
-        <PokemonGrid pokemons={favoritePokemons} />
+        <>
+            {favoritePokemons.length === 0 ?
+                (<p className='pt-4 font-mono text-blue-500'>NO HAY NADA PARA MOSTRAR
+                </p>)
+                :
+                (<PokemonGrid pokemons={favoritePokemons} />)
+            }
+        </>
     )
 }
