@@ -6,7 +6,7 @@ interface PokemonsFavorites{
 }
 
 const getInitialState=():PokemonsFavorites=>{
-    const favorites = JSON.parse(localStorage.getItem('favorite-pokemon') ?? '{}')
+    const favorites = JSON.parse(localStorage.getItem('pokemon-favorites') ?? '{}')
     return favorites
 }
 
